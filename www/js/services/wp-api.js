@@ -6,7 +6,8 @@ angular.module('ionPress').factory('wpApiResource', function ($q, $resource, wpA
 		Posts: $resource(wpApi.baseUrl + wpApi.post.endpoint),
 		Post: $resource(wpApi.baseUrl + wpApi.post.endpoint + '/:id'),
 		Tags:  $resource(wpApi.baseUrl + wpApi.tag.endpoint),
-		Tag: $resource(wpApi.baseUrl + wpApi.tag.endpoint + '/:id')
+		Tag: $resource(wpApi.baseUrl + wpApi.tag.endpoint + '/:id'),
+		TagPosts: $resource(wpApi.baseUrl + wpApi.post.endpoint + '?filter[tag]=:id')
 	};
 
 	/**
@@ -114,6 +115,23 @@ angular.module('ionPress').factory('wpApiResource', function ($q, $resource, wpA
 	service.getTag = function (id) {
 		var deferred = $q.defer();
 		service.Tag.get({
+			id:id
+		}, function (result) {
+			deferred.resolve(result);
+		});
+
+		return deferred.promise;
+	};
+
+	/**
+	 * Get a Tag's Posts
+	 * @param {Number} tag id
+	 *
+	 * @returns {*}
+	 */
+	service.getPostsByTagId = function (id) {
+		var deferred = $q.defer();
+		service.TagPosts.query({
 			id:id
 		}, function (result) {
 			deferred.resolve(result);
