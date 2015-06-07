@@ -9,12 +9,20 @@ var rename = require('gulp-rename');
 var sh = require('shelljs');
 var bulkSass = require('gulp-sass-bulk-import');
 var wiredep = require('wiredep').stream;
+var ngConstant = require('gulp-ng-constant');
 
 var paths = {
     sass: ['./scss/**/*.scss']
 };
 
 gulp.task('default', ['sass']);
+
+gulp.task('config', function () {
+  gulp.src('env/wp-api.json')
+    .pipe(ngConstant())
+    .pipe(rename('wp-api.js'))
+    .pipe(gulp.dest('./www/js'));
+});
 
 gulp.task('sass', function (done) {
     gulp.src('./scss/ionic.app.scss')

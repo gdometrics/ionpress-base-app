@@ -2,6 +2,7 @@
   "name": "ionic-app-base",
   "app_id": "",
   "gulpStartupTasks": [
+    "config",
     "sass",
     "bower",
     "watch"
