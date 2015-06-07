@@ -2,7 +2,16 @@
   "name": "wpApi.config",
   "constants": {
 		"wpApi": {
-			"baseUrl": ""
+			"baseUrl": "{BaseURL}",
+			"category": {
+				"endpoint": "terms/category"
+			},
+            "tag": {
+                "endpoint": "terms/tag"
+            },
+            "post": {
+                "endpoint": "posts"
+            }
 		}
 	}
 }
