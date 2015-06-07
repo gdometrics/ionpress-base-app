@@ -4,7 +4,11 @@
 node_modules/
 platforms/
 plugins/
+env/wp-api.json
+www/js/wp-api.js
 www/vendor/
 www/css/ionic.app.css
 www/css/ionic.app.min.css
+resources/android/*
+resources/ios/*
 .idea/

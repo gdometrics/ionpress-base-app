@@ -1,6 +1,7 @@
 angular.module('ionPress', [
     'ionic',
-    'ngCordova'
+    'ngCordova',
+    'wpApi.config'
 ]).config(function($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise('/');
 

@@ -2,7 +2,7 @@
   "name": "ionPress.wpApi.config",
   "constants": {
 		"wpApi": {
-			"baseUrl": "http://178.62.121.89/wp-json/"
+			"baseUrl": ""
 		}
 	}
 }

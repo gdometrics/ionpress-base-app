@@ -1,4 +1,4 @@
- angular.module('ionPress.wpApi').factory('wpApiResource', function ($reosurce, wpApi) {
+ angular.module('ionPress').factory('wpApiResource', function ($reosurce, wpApi) {
  	var service = {
  		baseUrl: wpApi.baseUrl
  	};
