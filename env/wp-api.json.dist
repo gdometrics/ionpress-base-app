@@ -1,5 +1,5 @@
 {
-  "name": "ionPress.wpApi.config",
+  "name": "wpApi.config",
   "constants": {
 		"wpApi": {
 			"baseUrl": ""
