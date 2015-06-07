@@ -24,7 +24,6 @@ angular.module('ionPress').factory('wpApiResource', function ($q, $resource, wpA
 		return deferred.promise;
 	};
 
-
 	/**
 	 * Get a Category
 	 * @param {Number} category id
@@ -139,7 +138,6 @@ angular.module('ionPress').factory('wpApiResource', function ($q, $resource, wpA
 
 		return deferred.promise;
 	};
-
 
 	return service;
  });
