@@ -4,10 +4,10 @@
 		"wpApi": {
 			"baseUrl": "{BaseURL}",
 			"category": {
-				"endpoint": "terms/category"
+				"endpoint": "taxonomies/category/terms"
 			},
             "tag": {
-                "endpoint": "terms/tag"
+                "endpoint": "taxonomies/post_tag/terms"
             },
             "post": {
                 "endpoint": "posts"
