@@ -2,7 +2,9 @@ angular.module('ionPress', [
     'ionic',
     'ngCordova',
     'ngResource',
-    'wpApi.config'
+    'wpApi.config',
+    'truncate',
+    'angularMoment'
 ]).config(function($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise('/');
 
@@ -10,27 +12,31 @@ angular.module('ionPress', [
         abstract: true,
         url: '',
         templateUrl: 'views/main.html',
-        controller: 'MainCtrl'
+        controller: 'MainCtrl',
+        resolve: {
+            categories: function (wpApiResource) {
+                return  wpApiResource.getCategories();
+            }
+        }
     }).state('app.latest', {
         url: '/',
         resolve: {
-             // categories: function (wpApiResource) {
-             //    console.log('here');
-             //    return  wpApiResource.getCategories();
-             // }
+             articles: function (wpApiResource) {
+                 return  wpApiResource.getPosts();
+             }
          },
         views: {
             content: {
-                templateUrl: 'views/articles.html',
-                controller: 'ArticlesCtrl'
+                templateUrl: 'views/latest-articles.html',
+                controller: 'LatestArticlesCtrl'
             }
         }
     }).state('app.category', {
         url: '/category/:id',
         resolve: {
-           // category: function (wpApiResource) {
-           //     return wpApiResource.getCategories();
-           // }
+           category: function ($stateParams, wpApiResource) {
+                return wpApiResource.getCategory($stateParams.id);
+           }
         },
         views: {
             content: {

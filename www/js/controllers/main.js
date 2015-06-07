@@ -1,10 +1,8 @@
 angular.module('ionPress')
-    .controller('MainCtrl', function ($scope, $ionicSideMenuDelegate, wpApiResource) {
+    .controller('MainCtrl', function ($scope, $ionicSideMenuDelegate, categories) {
         $scope.toggleMenu = function() {
             $ionicSideMenuDelegate.toggleLeft();
         };
 
-        wpApiResource.getPosts().then(function (categories) {
-        	console.log(categories);
-        });
+        $scope.categories = categories;
     });

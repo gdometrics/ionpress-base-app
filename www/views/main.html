@@ -3,12 +3,13 @@
         <!-- Left menu -->
         <ion-side-menu side="left">
             <ion-list>
-                <ion-item ui-sref="app.latest" ng-click="toggleMenu()">Projects</ion-item>
+                <ion-item ui-sref="app.latest" ng-click="toggleMenu()">Latest</ion-item>
+                <ion-item ng-repeat="category in categories" ui-sref="app.category({id: category.id})" ng-click="toggleMenu()">{{category.name}}</ion-item>
             </ion-list>
         </ion-side-menu>
 
         <ion-side-menu-content>
-            <ion-nav-bar class="bar-energized nav-title-slide-ios7">
+            <ion-nav-bar class="bar-dark">
                 <ion-nav-back-button></ion-nav-back-button>
             </ion-nav-bar>
             <ion-nav-view name="content"></ion-nav-view>
