@@ -26,6 +26,8 @@ module.exports = function (config) {
             'www/vendor/ionic/js/ionic-angular.js',
             'www/vendor/angular-ui-router/release/angular-ui-router.js',
             'www/vendor/ngCordova/dist/ng-cordova-mocks.min.js',
+            'www/vendor/angular-resource/angular-resource.min.js',
+            'www/vendor/ngCordova/dist/ng-cordova.min.js',
             'www/js/**/*.js',
             'www/views/**/*.html',
             'tests/spec/**/*.js',

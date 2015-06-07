@@ -26,6 +26,7 @@ angular.module('ionPress').factory('wpApiResource', function ($q, $resource, wpA
 
 	/**
 	 * Get a Category
+	 *
 	 * @param {Number} category id
 	 *
 	 * @returns {object} category
@@ -33,7 +34,7 @@ angular.module('ionPress').factory('wpApiResource', function ($q, $resource, wpA
 	service.getCategory = function (id) {
 		var deferred = $q.defer();
 		service.Category.get({
-			id:id
+			id: id
 		}, function (result) {
 			deferred.resolve(result);
 		});
@@ -57,6 +58,7 @@ angular.module('ionPress').factory('wpApiResource', function ($q, $resource, wpA
 
 	/**
 	 * Get a Post
+	 *
 	 * @param {Number} post id
 	 *
 	 * @returns {object} post
@@ -64,7 +66,7 @@ angular.module('ionPress').factory('wpApiResource', function ($q, $resource, wpA
 	service.getPost = function (id) {
 		var deferred = $q.defer();
 		service.Post.get({
-			id:id
+			id: id
 		}, function (result) {
 			deferred.resolve(result);
 		});
@@ -75,6 +77,7 @@ angular.module('ionPress').factory('wpApiResource', function ($q, $resource, wpA
 
 	/**
 	 * Get a Category's Posts
+	 *
 	 * @param {Number} category id
 	 *
 	 * @returns {*}
@@ -82,7 +85,7 @@ angular.module('ionPress').factory('wpApiResource', function ($q, $resource, wpA
 	service.getPostsByCategoryId = function (id) {
 		var deferred = $q.defer();
 		service.CategoryPosts.query({
-			id:id
+			id: id
 		}, function (result) {
 			deferred.resolve(result);
 		});
@@ -107,6 +110,7 @@ angular.module('ionPress').factory('wpApiResource', function ($q, $resource, wpA
 
 	/**
 	 * Get a Tag
+	 *
 	 * @param {Number} tag id
 	 *
 	 * @returns {object} Tag
@@ -114,7 +118,7 @@ angular.module('ionPress').factory('wpApiResource', function ($q, $resource, wpA
 	service.getTag = function (id) {
 		var deferred = $q.defer();
 		service.Tag.get({
-			id:id
+			id: id
 		}, function (result) {
 			deferred.resolve(result);
 		});
@@ -124,6 +128,7 @@ angular.module('ionPress').factory('wpApiResource', function ($q, $resource, wpA
 
 	/**
 	 * Get a Tag's Posts
+	 *
 	 * @param {Number} tag id
 	 *
 	 * @returns {*}
@@ -131,7 +136,7 @@ angular.module('ionPress').factory('wpApiResource', function ($q, $resource, wpA
 	service.getPostsByTagId = function (id) {
 		var deferred = $q.defer();
 		service.TagPosts.query({
-			id:id
+			id: id
 		}, function (result) {
 			deferred.resolve(result);
 		});

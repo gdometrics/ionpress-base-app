@@ -4,7 +4,7 @@ angular.module('ionPress')
             $ionicSideMenuDelegate.toggleLeft();
         };
 
-        wpApiResource.getPostsByCategoryId(3).then(function (categories) {
+        wpApiResource.getPosts().then(function (categories) {
         	console.log(categories);
         });
     });
