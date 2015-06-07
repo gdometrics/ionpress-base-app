@@ -1,4 +1,4 @@
-Ionic App Base
+IonPress
 =====================
 
 A starting project for Ionic that supports using custom SCSS with bulk file importing (globbing), Compass, wired dependencies using `wiredeps` so you don't have to include everything and Jasmine for scaffolding and running tests.
