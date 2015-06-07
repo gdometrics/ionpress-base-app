@@ -1,6 +1,11 @@
 angular.module('ionPress').factory('wpApiResource', function ($q, $resource, wpApi) {
 	var service = {
-		Categories: $resource(wpApi.baseUrl + wpApi.namespace + wpApi.category.endpoint + '/:id')
+		Categories: $resource(wpApi.baseUrl + wpApi.namespace + wpApi.category.endpoint),
+		Category: $resource(wpApi.baseUrl + wpApi.namespace + wpApi.category.endpoint + '/:id'),
+		Posts: $resource(wpApi.baseUrl + wpApi.namespace + wpApi.post.endpoint),
+		Post: $resource(wpApi.baseUrl + wpApi.namespace + wpApi.post.endpoint + '/:id'),
+		Tags:  $resource(wpApi.baseUrl + wpApi.namespace + wpApi.tag.endpoint),
+		Tag: $resource(wpApi.baseUrl + wpApi.namespace + wpApi.tag.endpoint + '/:id')
 	};
 
 	/**
@@ -11,7 +16,6 @@ angular.module('ionPress').factory('wpApiResource', function ($q, $resource, wpA
 	service.getCategories = function () {
 		var deferred = $q.defer();
 		service.Categories.query(function (result) {
-			console.log(result);
 			deferred.resolve(result);
 		});
 
@@ -25,15 +29,48 @@ angular.module('ionPress').factory('wpApiResource', function ($q, $resource, wpA
 	 *
 	 * @returns {object} category
 	 */
-	service.getCategories = function () {
+	service.getCategory = function (id) {
 		var deferred = $q.defer();
-		service.Categories.query(function (result) {
-			console.log(result);
+		service.Category.get({
+			id:id
+		}, function (result) {
 			deferred.resolve(result);
 		});
 
 		return deferred.promise;
 	};
 
- 	return service;
+	/**
+	 * Get all tags
+	 *
+	 * @returns {*}
+	 */
+	service.getTags = function () {
+		var deferred = $q.defer();
+		service.Tags.query(function (result) {
+			deferred.resolve(result);
+		});
+
+		return deferred.promise;
+	};
+
+	/**
+	 * Get a Category
+	 * @param {Number} category id
+	 *
+	 * @returns {object} category
+	 */
+	service.getTag = function (id) {
+		var deferred = $q.defer();
+		service.Tag.get({
+			id:id
+		}, function (result) {
+			deferred.resolve(result);
+		});
+
+		return deferred.promise;
+	};
+
+
+	return service;
  });
