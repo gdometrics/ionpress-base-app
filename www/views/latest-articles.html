@@ -1,19 +1,5 @@
 <ion-view title="Latest">
     <ion-content>
-        <ion-list>
-            <div class="list card" collection-repeat="article in articles | filter:(article.status!=='publish') ">
-                <div class="item item-avatar">
-                    <img ng-src={{article.author.avatar}}">
-                    <h2>{{article.author.name}}</h2>
-                    <p am-time-ago="article.modified"></p>
-                </div>
-
-                <div class="item item-body">
-                    <img class="full-image" ng-src="{{article.featured_image.guid}}">
-                    <h2 ng-bind-html="article.title"></h2>
-                    <div ng-bind-html="article.content | words:30"></div>
-                </div>
-            </div>
-        </ion-list>
+        <article-list articles="articles"></article-list>
     </ion-content>
 </ion-view>

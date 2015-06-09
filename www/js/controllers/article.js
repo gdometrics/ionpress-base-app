@@ -1,2 +1,4 @@
 angular.module('ionPress')
-    .controller('ArticleCtrl', function () {});
+    .controller('ArticleCtrl', function ($scope, article) {
+        $scope.article = article;
+    });

@@ -1,0 +1,8 @@
+<ion-content class="has-header">
+    <article-header article="article"></article-header>
+    <img class="full-image" ng-src="{{article.featured_image.guid}}">
+    <div class="article__content">
+        <h2 ng-bind-html="article.title"></h2>
+        <div ng-bind-html="article.content"></div>
+    </div>
+</ion-content>

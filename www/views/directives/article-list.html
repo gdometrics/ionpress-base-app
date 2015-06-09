@@ -1,0 +1,6 @@
+<ion-list>
+    <article-stub ng-repeat="article in articles | filter:(article.status!=='publish')"
+                  article="article"
+                  word-limit="20">
+    </article-stub>
+</ion-list>

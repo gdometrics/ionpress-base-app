@@ -34,9 +34,12 @@ angular.module('ionPress', [
     }).state('app.category', {
         url: '/category/:id',
         resolve: {
-           category: function ($stateParams, wpApiResource) {
+            category: function ($stateParams, wpApiResource) {
                 return wpApiResource.getCategory($stateParams.id);
-           }
+            },
+            articles: function ($stateParams, wpApiResource) {
+                return wpApiResource.getPostsByCategoryId($stateParams.id);
+            }
         },
         views: {
             content: {
@@ -46,11 +49,11 @@ angular.module('ionPress', [
         }
     }).state('app.article', {
         url: '/article/:id',
-        //resolve: {
-        //    projects: function (projects) {
-        //        return projects.getProjectList();
-        //    }
-        //},
+        resolve: {
+            article: function ($stateParams, wpApiResource) {
+                return wpApiResource.getPost($stateParams.id);
+            }
+        },
         views: {
             content: {
                 templateUrl: 'views/article.html',

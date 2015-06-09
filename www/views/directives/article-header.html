@@ -1,0 +1,5 @@
+<div class="item item-avatar">
+    <img ng-src={{article.author.avatar}}">
+    <h2><a ui-sref="app.category({id: category.id})" ng-repeat="category in article.categories">{{category.name}}</a></h2>
+    <p>{{article.author.name}} - <span am-time-ago="article.modified"></span></p>
+</div>

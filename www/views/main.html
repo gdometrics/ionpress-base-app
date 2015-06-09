@@ -4,7 +4,7 @@
         <ion-side-menu side="left">
             <ion-list>
                 <ion-item ui-sref="app.latest" ng-click="toggleMenu()">Latest</ion-item>
-                <ion-item ng-repeat="category in categories" ui-sref="app.category({id: category.id})" ng-click="toggleMenu()">{{category.name}}</ion-item>
+                <ion-item ng-repeat="category in categories" ui-sref="app.category({id: category.ID})" ng-click="toggleMenu()">{{category.name}}</ion-item>
             </ion-list>
         </ion-side-menu>
 
