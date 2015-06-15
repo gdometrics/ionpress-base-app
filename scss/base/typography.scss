@@ -1,0 +1,15 @@
+$sans-serif-family-android: 'Droid Sans', Helvetica, Arial, sans-serif;
+$sans-family-android: 'Droid Serif', Georgia, Times, serif;
+
+$sans-serif-family-ios: Helmet, Freesans, Helvetica, Arial, sans-serif, Geneva, Verdana, sans-serif;
+$sans-family-ios: Georgia, Cambria, "Times New Roman", Times, serif;
+
+.platform-ios {
+  h1, h2, h3, h4, h5, h6 {
+    font-family: $sans-serif-family-ios;
+  }
+
+  p, span, figcaption {
+    font-family: $sans-family-ios;
+  }
+}

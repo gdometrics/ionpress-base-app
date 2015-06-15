@@ -1,6 +1,22 @@
 angular.module('ionPress')
-    .factory('articleService', function () {
+    .factory('articleService', function ($q, wpApiResource) {
         var service = {};
+
+        /**
+         * Get Article by Id
+         *
+         * @param id
+         * @returns {Object}
+         */
+        service.getArticleById = function (id) {
+            var defer = $q.defer();
+            // @TODO validate object and format
+            wpApiResource.getPost(id).then(function (post) {
+                defer.resolve(post);
+            });
+
+            return defer.promise;
+        };
 
         /**
          * Get Categories from Article

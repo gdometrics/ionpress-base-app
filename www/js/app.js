@@ -49,17 +49,16 @@ angular.module('ionPress', [
         }
     }).state('app.article', {
         url: '/article/:id',
-        resolve: {
-            article: function ($stateParams, wpApiResource) {
-                return wpApiResource.getPost($stateParams.id);
-            }
-        },
         views: {
             content: {
                 templateUrl: 'views/article.html',
                 controller: 'ArticleCtrl'
             }
-        }
+        },
+        params: {
+            articles: []
+        },
+        cache: false
     });
 }).run(function ($ionicPlatform) {
     $ionicPlatform.ready(function () {

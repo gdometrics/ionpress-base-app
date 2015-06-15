@@ -5,8 +5,8 @@
         <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
         <title></title>
 
-        <link href="http://fonts.googleapis.com/css?family=Droid+Serif" rel="stylesheet" type="text/css">
-        <link href="http://fonts.googleapis.com/css?family=Droid+Sans:800" rel="stylesheet" type="text/css">
+        <link href="http://fonts.googleapis.com/css?family=Droid%20Serif" rel="stylesheet" type="text/css">
+        <link href="http://fonts.googleapis.com/css?family=Droid%20Sans%3A400%2C700" rel="stylesheet" type="text/css">
         <link href="css/ionic.app.css" rel="stylesheet">
 
         <!-- ionic/angularjs js -->
@@ -31,16 +31,19 @@
         <script src="js/directives/article-full.js"></script>
         <script src="js/directives/article-list.js"></script>
         <script src="js/directives/article-stub.js"></script>
-        <script src="js/directives/article-header.js"></script>
+        <script src="js/directives/article-detail.js"></script>
+        <script src="js/directives/article-viewer.js"></script>
+        <script src="js/directives/dynamic-slides.js"></script>
         <script src="js/controllers/main.js"></script>
         <script src="js/controllers/latest-articles.js"></script>
         <script src="js/controllers/articles.js"></script>
         <script src="js/controllers/article.js"></script> 
         <script src="js/services/wp-api.js"></script>
         <script src="js/services/article.js"></script>
+        <script src="js/services/articles.js"></script>
     </head>
 
     <body ng-app="ionPress">
-        <div ui-view></div>
+        <div ui-view=""></div>
     </body>
 </html>

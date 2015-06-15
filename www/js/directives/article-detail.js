@@ -1,8 +1,8 @@
 angular.module('ionPress')
-    .directive('articleHeader', function (articleService) {
+    .directive('articleDetail', function (articleService) {
         return {
             restrict: 'E',
-            templateUrl: 'views/directives/article-header.html',
+            templateUrl: 'views/directives/article-detail.html',
             scope: {
                 article: '='
             },

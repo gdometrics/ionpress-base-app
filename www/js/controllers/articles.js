@@ -1,5 +1,5 @@
 angular.module('ionPress')
     .controller('ArticlesCtrl', function ($scope, category, articles) {
-        $scope.title = category.name;
+        $scope.category = category;
         $scope.articles = articles;
     });

@@ -1,6 +1,6 @@
 {
   "name": "ionic-app-base",
-  "app_id": "",
+  "app_id": "a51b7aed",
   "gulpStartupTasks": [
     "config",
     "sass",
