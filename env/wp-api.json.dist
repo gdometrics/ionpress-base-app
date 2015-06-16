@@ -2,7 +2,7 @@
   "name": "wpApi.config",
   "constants": {
 		"wpApi": {
-			"baseUrl": "{BaseURL}",
+			"baseUrl": "{BaseURL}/wp-json/",
 			"category": {
 				"endpoint": "taxonomies/category/terms"
 			},

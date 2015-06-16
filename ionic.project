@@ -4,6 +4,7 @@
   "gulpStartupTasks": [
     "config",
     "sass",
+    "templates",
     "bower",
     "watch"
   ],

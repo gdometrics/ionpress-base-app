@@ -10,12 +10,14 @@ var sh = require('shelljs');
 var bulkSass = require('gulp-sass-bulk-import');
 var wiredep = require('wiredep').stream;
 var ngConstant = require('gulp-ng-constant');
+var templateCache = require('gulp-angular-templatecache');
+var shell = require('gulp-shell');
 
 var paths = {
     sass: ['./scss/**/*.scss']
 };
 
-gulp.task('default', ['sass']);
+gulp.task('default', ['sass', 'templates', 'bower']);
 
 gulp.task('config', function () {
   gulp.src('env/wp-api.json')
@@ -40,6 +42,14 @@ gulp.task('sass', function (done) {
         .on('end', done);
 });
 
+gulp.task('templates', function(){
+    return gulp.src('./www/views/**/*.html')
+        // Create entries within $templateCache
+        // Module uses ionic namespace as we can always guarantee it's existence within our application
+        .pipe(templateCache('templates.js',{module: 'ionic', root:'views/'}))
+        .pipe(gulp.dest('www/js'));
+});
+
 gulp.task('test', function () {
     // Be sure to return the stream
     // NOTE: Using the fake './foobar' so as to run the files
@@ -61,6 +71,8 @@ gulp.task('autotest', function () {
     return gulp.watch(['./www/js/**/*.js', './tests/spec/*.js'], ['test']);
 });
 
+gulp.task('bump', require('gulp-cordova-bump'));
+
 gulp.task('watch', function () {
     gulp.watch(paths.sass, ['sass']);
 });
@@ -71,6 +83,18 @@ gulp.task('bower', function () {
             exclude: "www/vendor/angular/angular.js"
         }))
         .pipe(gulp.dest('./www'));
+});
+
+gulp.task('docs', function() {
+    gulp.task('docs', shell.task([
+        'node_modules/jsdoc/jsdoc.js '+
+        '-c docs/config/conf.json '+
+        '-t docs/config/theme '+
+        '-d docs/html '+
+        '-P package.json '+
+        './README.md '+
+        '-r www/js'
+    ]));
 });
 
 gulp.task('install', ['git-check'], function () {
