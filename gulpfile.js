@@ -17,7 +17,7 @@ var paths = {
     sass: ['./scss/**/*.scss']
 };
 
-gulp.task('default', ['sass', 'templates', 'bower']);
+gulp.task('default', ['sass', 'templates', 'bower', 'config']);
 
 gulp.task('config', function () {
   gulp.src('env/wp-api.json')
@@ -85,17 +85,15 @@ gulp.task('bower', function () {
         .pipe(gulp.dest('./www'));
 });
 
-gulp.task('docs', function() {
-    gulp.task('docs', shell.task([
-        'node_modules/jsdoc/jsdoc.js '+
-        '-c docs/config/conf.json '+
-        '-t docs/config/theme '+
-        '-d docs/html '+
-        '-P package.json '+
-        './README.md '+
-        '-r www/js'
-    ]));
-});
+gulp.task('docs', shell.task([
+    'node_modules/jsdoc/jsdoc.js '+
+    '-c docs/config/conf.json '+
+    '-t docs/config/theme '+
+    '-d docs/html '+
+    '-P package.json '+
+    './README.md '+
+    '-r www/js'
+]));
 
 gulp.task('install', ['git-check'], function () {
     return bower.commands.install()
