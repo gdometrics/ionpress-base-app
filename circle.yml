@@ -9,4 +9,4 @@ dependencies:
     - bower install
 test:
   override:
-    - gulp test
+    - gulp coverage
