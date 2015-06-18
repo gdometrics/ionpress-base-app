@@ -12,6 +12,7 @@ var wiredep = require('wiredep').stream;
 var ngConstant = require('gulp-ng-constant');
 var templateCache = require('gulp-angular-templatecache');
 var shell = require('gulp-shell');
+var coveralls = require('gulp-coveralls');
 
 var paths = {
     sass: ['./scss/**/*.scss']
@@ -104,6 +105,11 @@ gulp.task('install', ['git-check'], function () {
         .on('log', function (data) {
             gutil.log('bower', gutil.colors.cyan(data.id), data.message);
         });
+});
+
+gulp.task('code-coverage', function () {
+    gulp.src('test/coverage/**/lcov.info')
+        .pipe(coveralls());
 });
 
 gulp.task('git-check', function (done) {
