@@ -50,7 +50,7 @@ gulp.task('templates', function(){
         .pipe(gulp.dest('www/js'));
 });
 
-gulp.task('test', function () {
+gulp.task('test', ['templates'], function () {
     gulp.src('env/wp-api-test.json')
         .pipe(ngConstant())
         .pipe(rename('wp-api.js'))
