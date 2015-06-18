@@ -1,7 +1,7 @@
+[![Circle CI](https://circleci.com/gh/ionpress/ionpress-base-app.svg?style=svg)](https://circleci.com/gh/ionpress/ionpress-base-app)
 [![Stories in Ready](https://badge.waffle.io/ionpress/ionpress-base-app.png?label=ready&title=Ready)](https://waffle.io/ionpress/ionpress-base-app)
 IonPress
 =====================
-[![Circle CI](https://circleci.com/gh/ionpress/ionpress-base-app.svg?style=svg)](https://circleci.com/gh/ionpress/ionpress-base-app)
 
 Build amazing applications for iOS and Android powered by Wordpress content
 
