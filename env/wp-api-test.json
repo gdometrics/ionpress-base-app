@@ -1,0 +1,17 @@
+{
+  "name": "wpApi.config",
+  "constants": {
+		"wpApi": {
+			"baseUrl": "http://localhost/wp-json/",
+			"category": {
+				"endpoint": "taxonomies/category/terms"
+			},
+            "tag": {
+                "endpoint": "taxonomies/post_tag/terms"
+            },
+            "post": {
+                "endpoint": "posts"
+            }
+		}
+	}
+}

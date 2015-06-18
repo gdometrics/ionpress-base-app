@@ -51,6 +51,11 @@ gulp.task('templates', function(){
 });
 
 gulp.task('test', function () {
+    gulp.src('env/wp-api-test.json')
+        .pipe(ngConstant())
+        .pipe(rename('wp-api.js'))
+        .pipe(gulp.dest('./www/js'));
+
     // Be sure to return the stream
     // NOTE: Using the fake './foobar' so as to run the files
     // listed in karma.conf.js INSTEAD of what was passed to
@@ -62,8 +67,7 @@ gulp.task('test', function () {
         }))
         .on('error', function (err) {
             // Make sure failed tests cause gulp to exit non-zero
-            console.log(err);
-            this.emit('end'); //instead of erroring the stream, end it
+            process.exit(1);
         });
 });
 
