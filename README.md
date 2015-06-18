@@ -1,6 +1,6 @@
 IonPress
 =====================
-[![Circle CI](https://circleci.com/gh/delta98/ionpress.svg?style=svg)](https://circleci.com/gh/delta98/ionpress)
+[![Circle CI](https://circleci.com/gh/ionpress/ionpress-base-app.svg?style=svg)](https://circleci.com/gh/ionpress/ionpress-base-app)
 
 Build amazing applications for iOS and Android powered by Wordpress content
 
