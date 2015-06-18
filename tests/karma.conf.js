@@ -59,6 +59,7 @@ module.exports = function (config) {
         plugins: [
             'karma-phantomjs-launcher',
             'karma-jasmine',
+            'karma-coverage',
             'karma-ng-html2js-preprocessor',
             'karma-ng-json2js-preprocessor'
         ],
@@ -86,8 +87,8 @@ module.exports = function (config) {
 
         // optionally, configure the reporter
         coverageReporter: {
-            type : 'html',
-            dir : 'coverage/'
+            type : 'lcov',
+            dir : 'tests/coverage/'
         },
 
         // Continuous Integration mode
@@ -106,43 +107,5 @@ module.exports = function (config) {
         // },
         // URL root prevent conflicts with the site root
         // urlRoot: '_karma_'
-    });
-
-    config.set({
-        files: [
-            'www/vendor/angular/angular.js',
-            'www/vendor/angular-mocks/angular-mocks.js',
-            'www/vendor/angular-animate/angular-animate.js',
-            'www/vendor/angular-sanitize/angular-sanitize.js',
-            'www/vendor/ionic/js/ionic.js',
-            'www/vendor/ionic/js/ionic-angular.js',
-            'www/vendor/angular-ui-router/release/angular-ui-router.js',
-            'www/vendor/ngCordova/dist/ng-cordova-mocks.min.js',
-            'www/vendor/angular-resource/angular-resource.min.js',
-            'www/vendor/ngCordova/dist/ng-cordova.min.js',
-            'www/vendor/angular-truncate/src/truncate.js',
-            'www/vendor/moment/moment.js',
-            'www/vendor/angular-moment/angular-moment.js',
-            'www/js/**/*.js',
-            'www/views/**/*.html',
-            'tests/spec/**/*.js',
-            'tests/fixture/*.json'
-        ],
-
-        // coverage reporter generates the coverage
-        reporters: ['progress', 'coverage'],
-
-        preprocessors: {
-            // source files, that you wanna generate coverage for
-            // do not include tests or libraries
-            // (these files will be instrumented by Istanbul)
-            'www/js/**/*.js': ['coverage']
-        },
-
-        // optionally, configure the reporter
-        coverageReporter: {
-            type : 'html',
-            dir : 'tests/coverage'
-        }
     });
 };

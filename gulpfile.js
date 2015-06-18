@@ -72,6 +72,14 @@ gulp.task('test', ['templates'], function () {
         });
 });
 
+gulp.task('coverage', ['test'], function () {
+    return gulp.src('tests/coverage/**/lcov.info')
+        .pipe(coveralls()).on('error', function (err) {
+            // Make sure failed tests cause gulp to exit non-zero
+            process.exit(1);
+        });
+});
+
 gulp.task('autotest', function () {
     return gulp.watch(['./www/js/**/*.js', './tests/spec/*.js'], ['test']);
 });
