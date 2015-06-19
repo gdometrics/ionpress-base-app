@@ -115,11 +115,6 @@ gulp.task('install', ['git-check'], function () {
         });
 });
 
-gulp.task('code-coverage', function () {
-    gulp.src('test/coverage/**/lcov.info')
-        .pipe(coveralls());
-});
-
 gulp.task('git-check', function (done) {
     if (!sh.which('git')) {
         console.log(
