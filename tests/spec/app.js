@@ -42,7 +42,7 @@ describe('Module: app', function () {
         $httpBackend.verifyNoOutstandingRequest();
     }));
 
-    describe('Route: state.app', function () {
+    describe('State: app', function () {
         var state;
         beforeEach(function () {
             state = $state.get('app');
@@ -61,6 +61,51 @@ describe('Module: app', function () {
 
             $injector.invoke(state.resolve.categories).then(function (categories) {
                 expect(Array.isArray(categories));
+            });
+        });
+    });
+
+    describe('State: app.category', function () {
+        var state;
+        beforeEach(function () {
+            state = $state.get('app.category', {id: 1});
+        });
+
+        it('should use the ArticlesCtrl', function () {
+            expect(state.views.content.controller).toBe('ArticlesCtrl')
+        });
+
+        it('should resolve a category for id:1', function () {
+            expect(state.resolve.category).toBeDefined();
+
+            $httpBackend.when('GET', wpApi.baseUrl + wpApi.category.endpoint + '/1').respond(200, JSON.stringify({
+                id : 1,
+                name : 'test'
+            }));
+
+            // Invoke resolve function and pass $stateParams.id
+            $injector.invoke(state.resolve.category, {} , {
+                $stateParams: {id: 1}
+            }).then(function (category) {
+                expect(category).toBeDefined();
+                expect(category.id).toBe(1);
+            });
+        });
+
+        it('should resolve articles for category id:1', function () {
+            expect(state.resolve.articles).toBeDefined();
+
+            $httpBackend.when('GET', wpApi.baseUrl + wpApi.post.endpoint + '?filter[cat]=1').respond(200, JSON.stringify([{
+                id : 1,
+                name : 'test'
+            }]));
+
+            // Invoke resolve function and pass $stateParams.id
+            $injector.invoke(state.resolve.articles, {} , {
+                $stateParams: {id: 1}
+            }).then(function (articles) {
+                expect(articles).toBeDefined();
+                expect(Array.isArray(articles)).toBe(true);
             });
         });
     });
