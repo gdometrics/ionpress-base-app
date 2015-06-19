@@ -38,12 +38,12 @@ describe('Service: articleService', function () {
 
     it('should return an article with an ID of 1', inject(function ($rootScope) {
         $httpBackend.when('GET', wpApi.baseUrl + wpApi.post.endpoint + '/1').respond(200, JSON.stringify({
-            ID : 1,
+            id : 1,
             name : 'test'
         }));
 
         articleService.getArticleById(1).then(function (article) {
-            expect((article.ID === 1)).toBe(true);
+            expect((article.id === 1)).toBe(true);
         });
 
         $rootScope.$digest();
@@ -51,7 +51,7 @@ describe('Service: articleService', function () {
 
     it('should have 2 categories', inject(function ($rootScope) {
         $httpBackend.when('GET', wpApi.baseUrl + wpApi.post.endpoint + '/1').respond(200, JSON.stringify({
-            ID : 1,
+            id : 1,
             name : 'test',
             terms: {
                 category: [
