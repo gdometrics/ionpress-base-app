@@ -19,7 +19,7 @@ describe('Directive: articleStub', function () {
 
         scope.category = {
             id: 1
-        }
+        };
 
         scope.articles = [];
         scope.wordLimit = 20;
