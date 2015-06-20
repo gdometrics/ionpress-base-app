@@ -49,7 +49,7 @@ describe('Module: app', function () {
         });
 
         it('should use the MainCrl', function () {
-            expect(state.controller).toBe('MainCtrl')
+            expect(state.controller).toBe('MainCtrl');
         });
 
         it('should be an abstract view', function () {
@@ -65,6 +65,27 @@ describe('Module: app', function () {
         });
     });
 
+    describe('State: app.latest', function () {
+        var state;
+        beforeEach(function () {
+            state = $state.get('app.latest');
+        });
+
+        it('should use the ArticlesCtrl', function () {
+            expect(state.views.content.controller).toBe('LatestArticlesCtrl');
+        });
+
+        it('should resolve articles', function () {
+            expect(state.resolve.articles).toBeDefined();
+
+            // Invoke resolve function and pass $stateParams.id
+            $injector.invoke(state.resolve.articles).then(function (articles) {
+                expect(articles).toBeDefined();
+                expect(Array.isArray(articles)).toBe(true);
+            });
+        });
+    });
+
     describe('State: app.category', function () {
         var state;
         beforeEach(function () {
@@ -72,7 +93,7 @@ describe('Module: app', function () {
         });
 
         it('should use the ArticlesCtrl', function () {
-            expect(state.views.content.controller).toBe('ArticlesCtrl')
+            expect(state.views.content.controller).toBe('ArticlesCtrl');
         });
 
         it('should resolve a category for id:1', function () {
@@ -107,6 +128,22 @@ describe('Module: app', function () {
                 expect(articles).toBeDefined();
                 expect(Array.isArray(articles)).toBe(true);
             });
+        });
+    });
+
+    describe('State: app.article', function () {
+        var state;
+        beforeEach(function () {
+            state = $state.get('app.article', {id: 1});
+        });
+
+        it('should use the ArticlesCtrl', function () {
+            expect(state.views.content.controller).toBe('ArticleCtrl');
+        });
+
+        it('should use start with an empty array articles', function () {
+            expect(Array.isArray(state.params.articles)).toBe(true);
+            expect(state.params.articles.length).toBe(0);
         });
     });
 });
