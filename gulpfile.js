@@ -51,12 +51,14 @@ gulp.task('templates', function(){
         .pipe(gulp.dest('www/js'));
 });
 
-gulp.task('test', ['templates'], function () {
+gulp.task('test-config', function () {
     gulp.src('env/wp-api-test.json')
         .pipe(ngConstant())
         .pipe(rename('wp-api.js'))
         .pipe(gulp.dest('./www/js'));
+});
 
+gulp.task('test', ['templates'], function () {
     // Be sure to return the stream
     // NOTE: Using the fake './foobar' so as to run the files
     // listed in karma.conf.js INSTEAD of what was passed to
@@ -72,7 +74,7 @@ gulp.task('test', ['templates'], function () {
         });
 });
 
-gulp.task('coverage', ['test'], function () {
+gulp.task('coverage', ['test', 'test-config'], function () {
     return gulp.src('tests/coverage/**/lcov.info')
         .pipe(coveralls()).on('error', function (err) {
             // Make sure failed tests cause gulp to exit non-zero
