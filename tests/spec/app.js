@@ -56,6 +56,10 @@ describe('Module: app', function () {
             expect(state.abstract).toBe(true)
         });
 
+        it('should use views/main.html as template', function () {
+            expect(state.templateUrl).toBe('views/main.html')
+        });
+
         it('should resolve categories', function () {
             expect(state.resolve.categories).toBeDefined();
 
@@ -73,6 +77,10 @@ describe('Module: app', function () {
 
         it('should use the ArticlesCtrl', function () {
             expect(state.views.content.controller).toBe('LatestArticlesCtrl');
+        });
+
+        it('should use views/latest-articles.html as template', function () {
+            expect(state.views.content.templateUrl).toBe('views/latest-articles.html')
         });
 
         it('should resolve articles', function () {
@@ -94,6 +102,10 @@ describe('Module: app', function () {
 
         it('should use the ArticlesCtrl', function () {
             expect(state.views.content.controller).toBe('ArticlesCtrl');
+        });
+
+        it('should use views/articles.html as template', function () {
+            expect(state.views.content.templateUrl).toBe('views/articles.html')
         });
 
         it('should resolve a category for id:1', function () {
@@ -137,8 +149,12 @@ describe('Module: app', function () {
             state = $state.get('app.article', {id: 1});
         });
 
-        it('should use the ArticlesCtrl', function () {
+        it('should use the ArticleCtrl', function () {
             expect(state.views.content.controller).toBe('ArticleCtrl');
+        });
+
+        it('should use views/article.html as template', function () {
+            expect(state.views.content.templateUrl).toBe('views/article.html')
         });
 
         it('should use start with an empty array articles', function () {

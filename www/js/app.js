@@ -62,10 +62,12 @@ angular.module('ionPress', [
     });
 }).run(function ($ionicPlatform) {
     $ionicPlatform.ready(function () {
+        /* istanbul ignore if  */
         if (window.cordova && window.cordova.plugins.Keyboard) {
             cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
             cordova.plugins.Keyboard.disableScroll(true); // Fixes issues with keyboard creating space whilst animating
         }
+        /* istanbul ignore if  */
         if (window.StatusBar) {
             StatusBar.hide();
         }
