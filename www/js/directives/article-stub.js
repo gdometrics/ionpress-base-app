@@ -6,11 +6,18 @@ angular.module('ionPress')
             scope: {
                 article: '=',
                 category: '=',
-                articles: '=',
                 wordLimit: '@'
             },
-            link: function postLink(scope) {
-
+            require: '^articleList',
+            /**
+             *
+             * @param scope
+             * @param element
+             * @param attrs
+             * @param articleListCntrl
+             */
+            link: function postLink(scope, element, attrs, articleListCntrl) {
+                scope.articles = articleListCntrl.getArticles();
             }
         }
     });

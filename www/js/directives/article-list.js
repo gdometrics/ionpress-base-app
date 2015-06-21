@@ -4,8 +4,22 @@ angular.module('ionPress')
             restrict: 'E',
             templateUrl: 'views/directives/article-list.html',
             scope: {
-                articles: '='
+                articles: '=',
+                category: '='
             },
+            /**
+             *
+             * @param $scope
+             */
+            controller: function ($scope) {
+                this.getArticles = function () {
+                    return $scope.articles;
+                };
+            },
+            /**
+             *
+             * @param scope
+             */
             link: function postLink(scope) {
 
             }

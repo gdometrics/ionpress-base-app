@@ -9,7 +9,16 @@ describe('Directive: articleStub', function () {
     beforeEach(inject(function ($rootScope, $compile) {
         scope = $rootScope.$new();
 
-        element = $compile('<article-stub article="article" articles="articles" category="category" word-limit="20"></article-stub>')(scope);
+        element = angular.element('<article-stub article="article" category="category" word-limit="20"></article-stub>');
+
+        // We need to mock required controller as part of the require attribute on the directive
+        element.data('$articleListController', {
+            getArticles: function () {
+                return [];
+            }
+        });
+
+        element = $compile(element)(scope);
 
         scope.article = {
             ID: 1,
