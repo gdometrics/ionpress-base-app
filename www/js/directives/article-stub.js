@@ -9,13 +9,6 @@ angular.module('ionPress')
                 wordLimit: '@'
             },
             require: '^articleList',
-            /**
-             *
-             * @param scope
-             * @param element
-             * @param attrs
-             * @param articleListCntrl
-             */
             link: function postLink(scope, element, attrs, articleListCntrl) {
                 scope.articles = articleListCntrl.getArticles();
             }

@@ -7,21 +7,7 @@ angular.module('ionPress')
                 articles: '=',
                 category: '='
             },
-            /**
-             *
-             * @param $scope
-             */
-            controller: function ($scope) {
-                this.getArticles = function () {
-                    return $scope.articles;
-                };
-            },
-            /**
-             *
-             * @param scope
-             */
-            link: function postLink(scope) {
-
-            }
+            controller: 'articleListDelegate',
+            link: function postLink(scope) {}
         }
     });
