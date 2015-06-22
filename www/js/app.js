@@ -1,5 +1,6 @@
 angular.module('ionPress', [
     'ionic',
+    'ionic.ion.headerShrink',
     'ngCordova',
     'ngResource',
     'wpApi.config',

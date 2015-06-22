@@ -31,6 +31,7 @@ module.exports = function (config) {
             'www/vendor/angular-truncate/src/truncate.js',
             'www/vendor/moment/moment.js',
             'www/vendor/angular-moment/angular-moment.js',
+            'www/vendor/ionic-ion-header-shrink/ionic.headerShrink.js',
             'www/js/**/*.js',
             'www/views/**/*.html',
             'tests/spec/**/*.js',
