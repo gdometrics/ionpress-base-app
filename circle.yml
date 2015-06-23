@@ -16,4 +16,4 @@ deployment:
     branch: development
     commands:
       - ionic build ios
-      - ionic upload
+      - ionic upload --email IONIC_EMAIL --password IONIC_PASSWORD
