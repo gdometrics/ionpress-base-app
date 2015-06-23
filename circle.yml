@@ -15,7 +15,4 @@ deployment:
     branch: development
     commands:
       - npm install -g cordova ionic
-      - ionic platform add ios
-      - ionic state restore
-      - ionic build ios
       - ionic upload --email $IONIC_EMAIL --password $IONIC_PASSWORD
