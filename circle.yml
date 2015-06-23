@@ -6,7 +6,14 @@ machine:
 dependencies:
   post:
     - npm install -g gulp
+    - npm install -g cordova ionic
     - bower install
 test:
   override:
     - gulp coverage
+deployment:
+  development:
+    branch: development
+    commands:
+      - ionic build ios
+      - ionic upload
