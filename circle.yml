@@ -6,7 +6,6 @@ machine:
 dependencies:
   post:
     - npm install -g gulp
-    - npm install -g cordova ionic
     - bower install
 test:
   override:
@@ -15,5 +14,8 @@ deployment:
   development:
     branch: development
     commands:
+      - npm install -g cordova ionic
+      - ionic platform add ios
+      - ionic state restore
       - ionic build ios
-      - ionic upload --email IONIC_EMAIL --password IONIC_PASSWORD
+      - ionic upload --email $IONIC_EMAIL --password $IONIC_PASSWORD
