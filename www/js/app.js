@@ -4,7 +4,7 @@ angular.module('ionPress', [
     'ngResource',
     'wpApi.config',
     'truncate',
-    'angularMoment'
+    'angularMoment',
     'ionPress.plugin.headerShrink'
 ]).config(function($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise('/');
