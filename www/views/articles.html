@@ -1,5 +1,9 @@
-<ion-view title="{{category.title}}">
-    <ion-content>
-        <article-list articles="articles" category="category"></article-list>
+<ion-view title="{{category.name}}">
+    <ion-nav-bar class="bar-positive"></ion-nav-bar>
+    <ion-nav-buttons side="left">
+        <button class="button button-icon icon ion-navicon" ng-click="toggleMenu()" nav-direction="swap"></button>
+    </ion-nav-buttons>
+    <ion-content header-shrink event-interval="5">
+        <article-list articles="articles"></article-list>
     </ion-content>
 </ion-view>

@@ -9,7 +9,7 @@ describe('Directive: articleStub', function () {
     beforeEach(inject(function ($rootScope, $compile) {
         scope = $rootScope.$new();
 
-        element = angular.element('<article-stub article="article" category="category" word-limit="20"></article-stub>');
+        element = angular.element('<article-stub article="article" word-limit="20"></article-stub>');
 
         // We need to mock required controller as part of the require attribute on the directive
         element.data('$articleListController', {
@@ -26,10 +26,6 @@ describe('Directive: articleStub', function () {
             content: "Excuse me. Excuse me. Marty, you seem so nervous, is something wrong? Are you okay? Marty, one rejection isn't the end of the world."
         };
 
-        scope.category = {
-            id: 1
-        };
-
         scope.articles = [];
         scope.wordLimit = 20;
 
@@ -39,11 +35,6 @@ describe('Directive: articleStub', function () {
     it('should have an article', function () {
         var isolated = element.isolateScope();
         expect(isolated.article).toBeDefined();
-    });
-
-    it('should have a category', function () {
-        var isolated = element.isolateScope();
-        expect(isolated.category).toBeDefined();
     });
 
     it('should have an array of articles', function () {

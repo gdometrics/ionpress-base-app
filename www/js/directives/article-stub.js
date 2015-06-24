@@ -5,7 +5,6 @@ angular.module('ionPress')
             templateUrl: 'views/directives/article-stub.html',
             scope: {
                 article: '=',
-                category: '=',
                 wordLimit: '@'
             },
             require: '^articleList',

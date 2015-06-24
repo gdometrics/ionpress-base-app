@@ -1,8 +1,9 @@
 <ion-view title="Latest">
-    <ion-header-bar class="bar-light">
-        <h1 class="title">Latest Articles</h1>
-    </ion-header-bar>
-    <ion-content header-shrink>
+    <ion-nav-bar class="bar-light"></ion-nav-bar>
+    <ion-nav-buttons side="left">
+        <button class="button button-icon icon ion-navicon" ng-click="toggleMenu()" nav-direction="swap"></button>
+    </ion-nav-buttons>
+    <ion-content header-shrink event-interval="5">
         <article-list articles="articles"></article-list>
     </ion-content>
 </ion-view>

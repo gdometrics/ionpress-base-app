@@ -4,8 +4,7 @@ angular.module('ionPress')
             restrict: 'E',
             templateUrl: 'views/directives/article-list.html',
             scope: {
-                articles: '=',
-                category: '='
+                articles: '='
             },
             controller: 'articleListDelegate',
             link: function postLink(scope) {}

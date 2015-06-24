@@ -9,9 +9,8 @@ describe('Directive: articleList', function () {
     beforeEach(inject(function ($rootScope, $compile) {
         scope = $rootScope.$new();
         scope.articles = [];
-        scope.category = {};
 
-        element = $compile('<article-list articles="articles" category="category"></article-list>')(scope);
+        element = $compile('<article-list articles="articles"></article-list>')(scope);
 
         scope.$digest();
     }));
@@ -19,11 +18,6 @@ describe('Directive: articleList', function () {
     it('should have articles', function () {
         var isolated = element.isolateScope();
         expect(isolated.articles).toBeDefined();
-    });
-
-    it('should have a category', function () {
-        var isolated = element.isolateScope();
-        expect(isolated.category).toBeDefined();
     });
 
     it('should have a controller', function () {

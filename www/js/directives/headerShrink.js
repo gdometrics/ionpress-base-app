@@ -24,7 +24,7 @@ angular.module('ionPress.plugin.headerShrink', [])
             //}
         });
 
-        return {
+        return { //@TODO move logic into a controller to provide access to $ionicView events
             restrict: 'A',
             link: function ($scope, $element, $attr) {
                 var starty = $scope.$eval($attr.headerShrink) || 0;
