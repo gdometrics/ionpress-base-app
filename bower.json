@@ -10,8 +10,7 @@
     "angular-resource": "~1.4.0",
     "angular-moment": "~0.10.1",
     "jquery": "~2.1.4",
-    "angular-truncate": "*",
-    "ionic-ion-header-shrink": "*"
+    "angular-truncate": "*"
   },
   "resolutions": {
     "angular": "1.3.13"
