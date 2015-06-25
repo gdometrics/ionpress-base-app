@@ -49,9 +49,17 @@ $ionicons-font-path: "../vendor/ionic/fonts" !default;
   height: 60px;
 }
 
+.bar-header {
+  height: 80px;
+
+  .title {
+    top: 18px;
+  }
+}
+
 ion-content {
   &.has-header {
     top: 0 !important;
-    padding-top: 50px !important;
+    padding-top: 80px !important;
   }
 }

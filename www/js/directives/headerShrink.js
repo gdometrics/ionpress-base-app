@@ -19,9 +19,7 @@ angular.module('ionPress.plugin.headerShrink', [])
 
         // Reset headers after the view has segued to the next
         $rootScope.$on('$ionicView.beforeLeave', function (event, state) {
-            //if(state.direction == "back" && state.stateName == "app.article") {
             resetHeaders();
-            //}
         });
 
         return { //@TODO move logic into a controller to provide access to $ionicView events
