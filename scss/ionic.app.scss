@@ -63,3 +63,15 @@ ion-content {
     padding-top: 80px !important;
   }
 }
+
+.search-loading {
+  svg {
+    width: 25px;
+    height: 25px;
+    fill: #aaa;
+    stroke: #aaa;
+    color: #aaa;
+    margin-top: 5px;
+    margin-left: -6px;
+  }
+}

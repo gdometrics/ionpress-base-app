@@ -76,11 +76,11 @@ describe('Module: app', function () {
         });
 
         it('should use the ArticlesCtrl', function () {
-            expect(state.views.content.controller).toBe('LatestArticlesCtrl');
+            expect(state.views.content.controller).toBe('ArticlesCtrl');
         });
 
         it('should use views/latest-articles.html as template', function () {
-            expect(state.views.content.templateUrl).toBe('views/latest-articles.html')
+            expect(state.views.content.templateUrl).toBe('views/articles.html')
         });
 
         it('should resolve articles', function () {

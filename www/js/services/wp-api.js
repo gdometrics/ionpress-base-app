@@ -74,6 +74,23 @@ angular.module('ionPress').factory('wpApiResource', function ($q, $resource, wpA
 		return deferred.promise;
 	};
 
+    /**
+     * Search Posts
+     *
+     * @param {string} term
+     *
+     * @returns {object} post
+     */
+    service.findPostsWithTerm = function (term) {
+        var deferred = $q.defer();
+        service.Posts.query({
+            'filter[s]' : term
+        }, function (result) {
+            deferred.resolve(result);
+        });
+
+        return deferred.promise;
+    };
 
 	/**
 	 * Get a Category's Posts
