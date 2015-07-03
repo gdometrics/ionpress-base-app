@@ -1,5 +1,12 @@
-<ion-view title="{{category.title}}">
-    <ion-content>
-        <article-list articles="articles" category="category"></article-list>
+<ion-view title="{{category.name}}" can-swipe-back="false">
+    <ion-nav-bar class="bar-light"></ion-nav-bar>
+    <ion-nav-buttons side="left">
+        <button class="button button-icon icon ion-navicon" ng-click="toggleMenu()" nav-direction="swap"></button>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="right">
+        <button smart-search class="button button-icon icon ion-ios-search-strong"></button>
+    </ion-nav-buttons>
+    <ion-content header-shrink event-interval="5">
+        <article-list articles="articles"></article-list>
     </ion-content>
 </ion-view>

@@ -44,9 +44,20 @@ $ionicons-font-path: "../vendor/ionic/fonts" !default;
   height: 100%;
 }
 
-/*.slider-slides {
-  width: 100% !important; // fixes width:0px issue
-}*/
+.bar-header {
+  height: 80px;
+
+  .title {
+    top: 18px;
+  }
+}
+
+ion-content {
+  &.has-header {
+    top: 0 !important;
+    padding-top: 80px !important;
+  }
+}
 
 .spinner svg {
   width: 60px;
