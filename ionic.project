@@ -5,6 +5,7 @@
     "sass",
     "templates",
     "config",
+    "bower",
     "test",
     "watch"
   ],
