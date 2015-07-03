@@ -33,6 +33,7 @@ module.exports = function (config) {
             'www/vendor/angular-moment/angular-moment.js',
             'www/vendor/ionic-filter-bar/dist/ionic.filter.bar.js',
             'www/vendor/angular-filter/dist/angular-filter.js',
+            'www/vendor/ionpress-plugin-smart-search/dist/ionPress.plugin.smart-search.js',
             'www/js/**/*.js',
             'www/views/**/*.html',
             'tests/spec/**/*.js',
