@@ -11,30 +11,36 @@ module.exports = function (config) {
         autoWatch: true,
 
         // base path, that will be used to resolve files and exclude
-        basePath: '../',
+        basePath: './',
 
         // testing framework to use (jasmine/mocha/qunit/...)
         frameworks: ['jasmine'],
 
         // list of files / patterns to load in the browser
         files: [
-            'www/vendor/angular/angular.js',
-            'www/vendor/angular-mocks/angular-mocks.js',
-            'www/vendor/angular-animate/angular-animate.js',
-            'www/vendor/angular-sanitize/angular-sanitize.js',
-            'www/vendor/ionic/js/ionic.js',
-            'www/vendor/ionic/js/ionic-angular.js',
-            'www/vendor/angular-ui-router/release/angular-ui-router.js',
-            'www/vendor/ngCordova/dist/ng-cordova-mocks.min.js',
-            'www/vendor/angular-resource/angular-resource.min.js',
-            'www/vendor/ngCordova/dist/ng-cordova.min.js',
-            'www/vendor/angular-truncate/src/truncate.js',
-            'www/vendor/moment/moment.js',
-            'www/vendor/angular-moment/angular-moment.js',
-            'www/js/**/*.js',
-            'www/views/**/*.html',
-            'tests/spec/**/*.js',
-            'tests/fixture/*.json'
+            // bower:js
+            '../www/vendor/jquery/dist/jquery.js',
+            '../www/vendor/angular/angular.js',
+            '../www/vendor/ngCordova/dist/ng-cordova.js',
+            '../www/vendor/angular-resource/angular-resource.js',
+            '../www/vendor/moment/moment.js',
+            '../www/vendor/angular-moment/angular-moment.js',
+            '../www/vendor/angular-truncate/src/truncate.js',
+            '../www/vendor/ionic-filter-bar/dist/ionic.filter.bar.js',
+            '../www/vendor/angular-filter/dist/angular-filter.js',
+            '../www/vendor/ionpress-plugin-smart-search/dist/ionPress.plugin.smart-search.js',
+            '../www/vendor/angular-animate/angular-animate.js',
+            '../www/vendor/angular-sanitize/angular-sanitize.js',
+            '../www/vendor/angular-ui-router/release/angular-ui-router.js',
+            '../www/vendor/ionic/js/ionic.js',
+            '../www/vendor/ionic/js/ionic-angular.js',
+            '../www/vendor/angular-mocks/angular-mocks.js',
+            // endbower
+
+            '../www/js/**/*.js',
+            '../www/views/**/*.html',
+            '../tests/spec/**/*.js',
+            '../tests/fixture/*.json'
         ],
 
         // list of files / patterns to exclude
@@ -68,9 +74,9 @@ module.exports = function (config) {
         reporters: ['progress', 'coverage'],
 
         preprocessors: {
-            'www/views/**/*.html': ['ng-html2js'],
+            '../www/views/**/*.html': ['ng-html2js'],
             '**/*.json': ['ng-json2js'],
-            'www/js/**/*.js': ['coverage']
+            '../www/js/**/*.js': ['coverage']
         },
 
         ngHtml2JsPreprocessor: {
@@ -88,7 +94,7 @@ module.exports = function (config) {
         // optionally, configure the reporter
         coverageReporter: {
             type : 'lcov',
-            dir : 'tests/coverage/'
+            dir : '../tests/coverage/'
         },
 
         // Continuous Integration mode

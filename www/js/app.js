@@ -5,8 +5,9 @@ angular.module('ionPress', [
     'wpApi.config',
     'truncate',
     'angularMoment',
-    'ionPress.plugin.headerShrink'
-]).config(function($stateProvider, $urlRouterProvider) {
+    'ionPress.plugin.headerShrink',
+    'ionPress.plugin.smartSearch'
+]).config(function($stateProvider, $urlRouterProvider, $ionicFilterBarConfigProvider) {
     $urlRouterProvider.otherwise('/');
 
     $stateProvider.state('app', {
@@ -22,14 +23,19 @@ angular.module('ionPress', [
     }).state('app.latest', {
         url: '/',
         resolve: {
-             articles: function (wpApiResource) {
-                 return  wpApiResource.getPosts();
-             }
+            category: function () {
+                return {
+                    name: 'Latest'
+                };
+            },
+            articles: function (wpApiResource) {
+                return  wpApiResource.getPosts();
+            }
          },
         views: {
             content: {
-                templateUrl: 'views/latest-articles.html',
-                controller: 'LatestArticlesCtrl'
+                templateUrl: 'views/articles.html',
+                controller: 'ArticlesCtrl'
             }
         }
     }).state('app.category', {
@@ -61,6 +67,8 @@ angular.module('ionPress', [
         },
         cache: false
     });
+
+    $ionicFilterBarConfigProvider.theme('light');
 }).run(function ($ionicPlatform) {
     $ionicPlatform.ready(function () {
         /* istanbul ignore if  */
@@ -71,6 +79,8 @@ angular.module('ionPress', [
         /* istanbul ignore if  */
         if (window.StatusBar) {
             StatusBar.hide();
+            //StatusBar.styleDefault();
+            ionic.Platform.fullScreen(true, false);
         }
     });
 });

@@ -149,4 +149,17 @@ describe('Service: wpApiResource', function () {
 
         $rootScope.$digest();
     }));
+
+    it('should return an array of posts using provided term', inject(function ($rootScope) {
+        $httpBackend.when('GET', wpApi.baseUrl + wpApi.post.endpoint + "?filter[s]=hawk").respond(200, JSON.stringify([{
+            id : '1',
+            name : 'test'
+        }]));
+
+        wpApiResource.findPostsWithTerm('hawk').then(function (value) {
+            expect(Array.isArray(value)).toBe(true);
+        });
+
+        $rootScope.$digest();
+    }));
 });

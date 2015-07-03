@@ -98,6 +98,12 @@ gulp.task('bower', function () {
             exclude: "www/vendor/angular/angular.js"
         }))
         .pipe(gulp.dest('./www'));
+
+    gulp.src('./tests/karma.conf.js')
+        .pipe(wiredep({
+            devDependencies: true
+        }))
+        .pipe(gulp.dest('./tests'));
 });
 
 gulp.task('docs', shell.task([

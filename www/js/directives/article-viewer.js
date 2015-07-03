@@ -1,5 +1,11 @@
 angular.module('ionPress')
-    .directive('articleViewer', function ($ionicLoading, $ionicSlideBoxDelegate, $ionicHistory) {
+    .directive('articleViewer', function ($rootScope, $ionicLoading, $ionicSlideBoxDelegate, $ionicHistory) {
+        $rootScope.$on('$ionicView.beforeLeave', function (event, state) {
+            //if(state.direction == "back" && state.stateName == "app.article") {
+            console.log(state);
+            //}
+        });
+
         return {
             restrict: 'E',
             templateUrl: 'views/directives/article-viewer.html',

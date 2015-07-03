@@ -13,4 +13,5 @@ www/css/ionic.app.min.css
 resources/android/*
 resources/ios/*
 docs/html
+tests/coverage
 .idea/

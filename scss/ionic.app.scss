@@ -44,11 +44,6 @@ $ionicons-font-path: "../vendor/ionic/fonts" !default;
   height: 100%;
 }
 
-.spinner svg {
-  width: 60px;
-  height: 60px;
-}
-
 .bar-header {
   height: 80px;
 
@@ -62,4 +57,9 @@ ion-content {
     top: 0 !important;
     padding-top: 80px !important;
   }
+}
+
+.spinner svg {
+  width: 60px;
+  height: 60px;
 }
