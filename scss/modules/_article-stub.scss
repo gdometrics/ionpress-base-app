@@ -15,6 +15,10 @@ article-stub {
 	&:last-of-type {
 	  border-bottom: 0;
 	}
+
+	&:last-child {
+	  margin-bottom: 16px;
+	}
   }
 
   .item-body {
@@ -22,7 +26,16 @@ article-stub {
 	padding: 0;
 
 	.item-body__content {
-	  padding: 0 3%;
+	  padding: 0 16px 16px;
+	}
+  }
+
+  .continue-reading {
+	border-top: 0;
+
+	&.item:last-child {
+	  border-bottom: 1px solid $grey--light;
+	  padding-bottom: 16px;
 	}
   }
 }
