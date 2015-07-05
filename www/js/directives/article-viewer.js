@@ -15,7 +15,7 @@ angular.module('ionPress')
             },
             link: function postLink(scope, elem, attrs) {
                 $ionicLoading.show({
-                    template: '<ion-spinner icon="ripple" class="spinner-positive"></ion-spinner>'
+                    template: '<ion-spinner icon="ripple" class="spinner-positive article-viewer"></ion-spinner>'
                 });
 
                 scope.article.then(function (article) {
