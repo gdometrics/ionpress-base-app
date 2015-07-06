@@ -1,4 +1,4 @@
-<ion-slide-box show-pager="false">
+<ion-slide-box show-pager="false" delegate-handle="article-viewer" on-slide-changed="updateSlideAvailability()">
     <ion-slide ng-if="(articles.length === 0)">
         <article-full article="article"></article-full>
     </ion-slide>
@@ -7,6 +7,6 @@
     </ion-slide>
 </ion-slide-box>
 <ion-footer-bar class="bar-light">
-    <button class="button button-clear" ng-click="goBack()"><i class="ion-chevron-left"></i></button>
-    <button class="button button-clear" ng-click="nextSlide()" ng-disabled="false">next</button>
+    <button class="button button-clear back" ng-click="goBack()"><i class="ion-chevron-left"></i></button>
+    <button class="button button-clear next" ng-click="nextSlide()" ng-disabled="!isSlideAvailable">next</button>
 </ion-footer-bar>

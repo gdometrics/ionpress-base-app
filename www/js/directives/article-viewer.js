@@ -1,11 +1,5 @@
 angular.module('ionPress')
     .directive('articleViewer', function ($rootScope, $ionicLoading, $ionicSlideBoxDelegate, $ionicHistory) {
-        $rootScope.$on('$ionicView.beforeLeave', function (event, state) {
-            //if(state.direction == "back" && state.stateName == "app.article") {
-            console.log(state);
-            //}
-        });
-
         return {
             restrict: 'E',
             templateUrl: 'views/directives/article-viewer.html',
@@ -13,33 +7,8 @@ angular.module('ionPress')
                 article: '=',
                 articles: '='
             },
-            link: function postLink(scope, elem, attrs) {
-                $ionicLoading.show({
-                    template: '<ion-spinner icon="ripple" class="spinner-positive"></ion-spinner>'
-                });
-
-                scope.article.then(function (article) {
-                    // Get selected article's position with in array
-                    var index = getArticlePosition(article, scope.articles);
-
-                    if(index !== false) {
-                        // Copy articles into a viewable selection to allow for swiping
-                        scope.viewableArticles = angular.copy(scope.articles);
-                        scope.viewableArticles = scope.viewableArticles.splice(index, scope.articles.length);
-                    }
-
-                    scope.article = article;
-                    $ionicLoading.hide();
-                });
-
-                scope.goBack = function () {
-                    $ionicHistory.goBack();
-                };
-
-                scope.nextSlide = function () {
-                    $ionicSlideBoxDelegate.next();
-                };
-
+            require: ['articleViewer'],
+            controller: function ($scope, $ionicSlideBoxDelegate) {
                 /**
                  * Get Article position within articles list
                  *
@@ -47,7 +16,7 @@ angular.module('ionPress')
                  * @param articles
                  * @returns {boolean}
                  */
-                function getArticlePosition(article, articles) {
+                this.getArticlePosition = function (article, articles) {
                     var index = false;
                     if(article.hasOwnProperty('ID')) {
                         angular.forEach(articles, function (a, i) {
@@ -58,7 +27,47 @@ angular.module('ionPress')
                     }
 
                     return index;
-                }
+                };
+
+                this.updateSlideAvailability = function () {
+                    $scope.isSlideAvailable = isSlideAvailable();
+                };
+
+                function isSlideAvailable  () {
+                    console.log($ionicSlideBoxDelegate.$getByHandle('article-viewer').slidesCount());
+                    return(($ionicSlideBoxDelegate.currentIndex()+1) < $ionicSlideBoxDelegate.slidesCount());
+                };
+            },
+            link: function postLink(scope, elem, attrs, controllers) {
+                scope.updateSlideAvailability = controllers[0].updateSlideAvailability;
+
+                $ionicLoading.show({
+                    template: '<ion-spinner icon="ripple" class="spinner-positive"></ion-spinner>'
+                });
+
+                scope.article.then(function (article) {
+                    // Get selected article's position with in array
+                    var index = controllers[0].getArticlePosition(article, scope.articles);
+
+                    if(index !== false) {
+                        // Copy articles into a viewable selection to allow for swiping
+                        scope.viewableArticles = angular.copy(scope.articles);
+                        scope.viewableArticles = scope.viewableArticles.splice(index, scope.articles.length);
+                    }
+
+                    scope.article = article;
+                    controllers[0].updateSlideAvailability();
+                    $ionicLoading.hide();
+                });
+
+                scope.goBack = function () {
+                    $ionicHistory.goBack();
+                };
+
+                scope.nextSlide = function () {
+                    $ionicSlideBoxDelegate.$getByHandle('article-viewer').next();
+                    controllers[0].updateSlideAvailability();
+                };
             }
         }
     });
