@@ -1,0 +1,18 @@
+article-detail {
+
+  .item-avatar {
+	padding-bottom: 0;
+	padding-left: 62px;
+	min-height: 62px;
+
+	img:first-child {
+	  max-height: 30px;
+	  max-width: 30px;
+	}
+
+	h2,
+	p {
+	  font-size: 12px;
+	}
+  }
+}

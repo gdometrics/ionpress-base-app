@@ -1,0 +1,29 @@
+article-stub {
+
+  .item-body {
+
+	.item-body__content {
+	  padding-bottom: 0;
+
+	  p {
+		display: none;
+	  }
+	}
+  }
+
+
+  .continue-reading {
+	display: none;
+  }
+
+  .list.card {
+
+	&:last-of-type {
+	  border-bottom: 1px solid $grey--light;
+	}
+
+	&:last-child {
+	  margin-bottom: 0;
+	}
+  }
+}
