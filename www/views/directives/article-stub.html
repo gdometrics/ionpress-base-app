@@ -2,11 +2,13 @@
     <article-detail article="article"></article-detail>
 
     <div class="item item-body" ui-sref="app.article({id: article.ID, articles: articles})">
-        <img class="full-image" ng-src="{{article.featured_image.guid}}">
-        <h2 class="title" ng-bind-html="article.title"></h2>
-        <div class="content" ng-bind-html="article.content | words:wordLimit"></div>
+		<img class="full-image" ng-src="{{article.featured_image.guid}}">
+        <div class="item-body__content">
+            <h2 class="title" ng-bind-html="article.title"></h2>
+            <div class="content" ng-bind-html="article.content | words:wordLimit"></div>
+        </div>
     </div>
     <div class="item continue-reading">
-       <a ui-sref="app.article({id: article.ID, articles: articles})">Continue reading</a>
+       <a ui-sref="app.article({id: article.ID, articles: articles})" class="button button-block">Continue reading</a>
     </div>
 </div>

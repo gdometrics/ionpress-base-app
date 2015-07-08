@@ -1,0 +1,46 @@
+article-stub {
+
+  img {
+	height: auto;
+	width: 100%;
+  }
+
+  .list.card {
+	border-top: 1px solid $grey--light;
+	border-bottom: 1px solid  $grey--light;
+	margin-left: 0;
+	margin-right: 0;
+	box-shadow: none;
+
+	&:first-of-type {
+	  border-top: 0;
+	  margin-top: 0;
+	}
+
+	&:last-of-type {
+	  border-bottom: 0;
+	}
+
+	&:last-child {
+	  margin-bottom: 16px;
+	}
+  }
+
+  .item-body {
+	border: 0;
+	padding: 0;
+
+	.item-body__content {
+	  padding: 0 16px 16px;
+	}
+  }
+
+  .continue-reading {
+	border-top: 0;
+
+	&.item:last-child {
+	  border-bottom: 1px solid $grey--light;
+	  padding-bottom: 16px;
+	}
+  }
+}
