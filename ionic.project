@@ -6,7 +6,7 @@
     "templates",
     "config",
     "bower",
-    validate,
+    "validate",
     "watch"
   ],
   "watchPatterns": [

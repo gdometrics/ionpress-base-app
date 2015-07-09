@@ -1,7 +1,11 @@
+---
 languages:
-   JavaScript: true
+  JavaScript: true
 exclude_paths:
-- "test/*"
-- "docs/*"
-- "hooks/*"
-- "gulpfile.js"
+- test/*
+- docs/*
+- hooks/*
+- gulpfile.js
+engines:
+  eslint:
+    enabled: true
