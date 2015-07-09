@@ -5,7 +5,7 @@ angular.module('ionPress')
             link: function (scope, elem, attrs, slider) {
                 scope.$watch(function () {
                     return scope.$eval(attrs.dynamicSlides).length;
-                }, function (val) {
+                }, function () {
                     slider[0].__slider.update();
                 });
             }

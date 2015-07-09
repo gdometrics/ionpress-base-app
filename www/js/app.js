@@ -1,3 +1,4 @@
+/*global StatusBar*/
 angular.module('ionPress', [
     'ionic',
     'ngCordova',
@@ -17,7 +18,7 @@ angular.module('ionPress', [
         controller: 'MainCtrl',
         resolve: {
             categories: function (wpApiResource) {
-                return  wpApiResource.getCategories();
+                return wpApiResource.getCategories();
             }
         }
     }).state('app.latest', {
@@ -29,7 +30,7 @@ angular.module('ionPress', [
                 };
             },
             articles: function (wpApiResource) {
-                return  wpApiResource.getPosts();
+                return wpApiResource.getPosts();
             }
          },
         views: {
@@ -79,8 +80,6 @@ angular.module('ionPress', [
         /* istanbul ignore if  */
         if (window.StatusBar) {
             StatusBar.hide();
-            //StatusBar.styleDefault();
-            ionic.Platform.fullScreen(true, false);
         }
     });
 });

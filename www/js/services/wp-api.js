@@ -6,7 +6,7 @@ angular.module('ionPress').factory('wpApiResource', function ($q, $resource, wpA
 		Posts: $resource(wpApi.baseUrl + wpApi.post.endpoint),
 		Post: $resource(wpApi.baseUrl + wpApi.post.endpoint + '/:id'),
         SearchPosts: $resource(wpApi.baseUrl + wpApi.post.endpoint + '?filter[s]=:term'),
-		Tags:  $resource(wpApi.baseUrl + wpApi.tag.endpoint),
+		Tags: $resource(wpApi.baseUrl + wpApi.tag.endpoint),
 		Tag: $resource(wpApi.baseUrl + wpApi.tag.endpoint + '/:id'),
 		TagPosts: $resource(wpApi.baseUrl + wpApi.post.endpoint + '?filter[tag]=:id')
 	};
@@ -28,7 +28,7 @@ angular.module('ionPress').factory('wpApiResource', function ($q, $resource, wpA
 	/**
 	 * Get a Category
 	 *
-	 * @param {Number} category id
+	 * @param {Number} id
 	 *
 	 * @returns {object} category
 	 */
@@ -60,7 +60,7 @@ angular.module('ionPress').factory('wpApiResource', function ($q, $resource, wpA
 	/**
 	 * Get a Post
 	 *
-	 * @param {Number} post id
+	 * @param {Number} id
 	 *
 	 * @returns {object} post
 	 */
@@ -85,7 +85,7 @@ angular.module('ionPress').factory('wpApiResource', function ($q, $resource, wpA
     service.findPostsWithTerm = function (term) {
         var deferred = $q.defer();
         service.SearchPosts.query({
-            term : term
+            term: term
         }, function (result) {
             deferred.resolve(result);
         });
@@ -96,7 +96,7 @@ angular.module('ionPress').factory('wpApiResource', function ($q, $resource, wpA
 	/**
 	 * Get a Category's Posts
 	 *
-	 * @param {Number} category id
+	 * @param {Number} id
 	 *
 	 * @returns {*}
 	 */
@@ -129,7 +129,7 @@ angular.module('ionPress').factory('wpApiResource', function ($q, $resource, wpA
 	/**
 	 * Get a Tag
 	 *
-	 * @param {Number} tag id
+	 * @param {Number} id
 	 *
 	 * @returns {object} Tag
 	 */
@@ -147,7 +147,7 @@ angular.module('ionPress').factory('wpApiResource', function ($q, $resource, wpA
 	/**
 	 * Get a Tag's Posts
 	 *
-	 * @param {Number} tag id
+	 * @param {Number} id
 	 *
 	 * @returns {*}
 	 */

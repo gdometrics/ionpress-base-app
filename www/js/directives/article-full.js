@@ -10,5 +10,5 @@ angular.module('ionPress')
                 // @TODO use article.format (standard/image) to determine template
                 scope.article.categories = articleService.getCategoriesFromArticle(scope.article);
             }
-        }
+        };
     });

@@ -9,5 +9,5 @@ angular.module('ionPress')
             link: function postLink(scope) {
                 scope.article.categories = articleService.getCategoriesFromArticle(scope.article);
             }
-        }
+        };
     });

@@ -11,5 +11,5 @@ angular.module('ionPress')
             link: function postLink(scope, element, attrs, articleListCntrl) {
                 scope.articles = articleListCntrl.getArticles();
             }
-        }
+        };
     });

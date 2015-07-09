@@ -1,11 +1,5 @@
 angular.module('ionPress')
     .directive('articleViewer', function ($rootScope, $ionicLoading, $ionicSlideBoxDelegate, $ionicHistory) {
-        $rootScope.$on('$ionicView.beforeLeave', function (event, state) {
-            //if(state.direction == "back" && state.stateName == "app.article") {
-            console.log(state);
-            //}
-        });
-
         return {
             restrict: 'E',
             templateUrl: 'views/directives/article-viewer.html',
@@ -13,7 +7,7 @@ angular.module('ionPress')
                 article: '=',
                 articles: '='
             },
-            link: function postLink(scope, elem, attrs) {
+            link: function postLink(scope) {
                 $ionicLoading.show({
                     template: '<ion-spinner icon="ripple" class="spinner-positive article-viewer"></ion-spinner>'
                 });
@@ -60,5 +54,5 @@ angular.module('ionPress')
                     return index;
                 }
             }
-        }
+        };
     });
