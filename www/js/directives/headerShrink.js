@@ -18,18 +18,13 @@ angular.module('ionPress.plugin.headerShrink', [])
         }
 
         // Reset headers after the view has segued to the next
-        $rootScope.$on('$ionicView.beforeLeave', function (event, state) {
+        $rootScope.$on('$ionicView.beforeLeave', function () {
             resetHeaders();
         });
 
         return { //@TODO move logic into a controller to provide access to $ionicView events
             restrict: 'A',
-            link: function ($scope, $element, $attr) {
-                var starty = $scope.$eval($attr.headerShrink) || 0;
-                var shrinkAmt;
-
-                var amt;
-
+            link: function ($scope, $element) {
                 var y = 0;
                 var prevY = 0;
                 var scrollDelay = 0.4;
@@ -65,6 +60,5 @@ angular.module('ionPress.plugin.headerShrink', [])
 
                 $element.bind('scroll', onScroll);
             }
-        }
+        };
     });
-

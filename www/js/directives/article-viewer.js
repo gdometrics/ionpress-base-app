@@ -69,5 +69,5 @@ angular.module('ionPress')
                     controllers[0].updateSlideAvailability();
                 };
             }
-        }
+        };
     });

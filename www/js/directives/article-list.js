@@ -7,6 +7,6 @@ angular.module('ionPress')
                 articles: '='
             },
             controller: 'articleListDelegate',
-            link: function postLink(scope) {}
-        }
+            link: function postLink() {}
+        };
     });

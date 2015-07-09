@@ -13,12 +13,15 @@ var ngConstant = require('gulp-ng-constant');
 var templateCache = require('gulp-angular-templatecache');
 var shell = require('gulp-shell');
 var coveralls = require('gulp-coveralls');
+var eslint = require('gulp-eslint');
 
 var paths = {
-    sass: ['./scss/**/*.scss']
+    sass: ['./scss/**/*.scss'],
+    js: './www/js/**/*.js'
 };
 
 gulp.task('default', ['sass', 'templates', 'bower', 'config']);
+gulp.task('validate', ['eslint']);
 
 gulp.task('config', function () {
   gulp.src('env/wp-api.json')
@@ -83,7 +86,14 @@ gulp.task('coverage', ['test', 'test-config'], function () {
 });
 
 gulp.task('autotest', function () {
-    return gulp.watch(['./www/js/**/*.js', './tests/spec/*.js'], ['test']);
+    return gulp.watch([paths.js, './tests/spec/*.js'], ['test']);
+});
+
+gulp.task('eslint', function () {
+    return gulp.src(paths.js)
+        .pipe(eslint())
+        .pipe(eslint.format())
+        .pipe(eslint.failOnError());
 });
 
 gulp.task('bump', require('gulp-cordova-bump'));
