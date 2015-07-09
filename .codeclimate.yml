@@ -5,8 +5,8 @@ ratings:
   paths:
   - "www/js/**"
 exclude_paths:
-  - "test/*"
-  - "docs/*"
-  - "hooks/*"
+  - "test/**"
+  - "docs/**"
+  - "hooks/**"
   - "gulpfile.js"
 
