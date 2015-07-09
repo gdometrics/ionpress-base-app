@@ -1,0 +1,7 @@
+languages:
+   JavaScript: true
+exclude_paths:
+- "test/*"
+- "docs/*"
+- "hooks/*"
+- "gulpfile.js"
