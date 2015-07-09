@@ -3,10 +3,10 @@ engines:
     enabled: true
 ratings:
   paths:
-  - "www/js/**"
+  - www/js/**
 exclude_paths:
-  - "test/**"
-  - "docs/**"
-  - "hooks/**"
-  - "gulpfile.js"
+  - tests/*
+  - docs/*
+  - hooks/*
+  - gulpfile.js
 
