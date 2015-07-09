@@ -1,0 +1,15 @@
+ion-content {
+  &.has-header {
+	top: 0 !important;
+	padding-top: 80px !important;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: $black;
+}

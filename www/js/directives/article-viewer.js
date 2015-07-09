@@ -42,7 +42,7 @@ angular.module('ionPress')
                 scope.updateSlideAvailability = controllers[0].updateSlideAvailability;
 
                 $ionicLoading.show({
-                    template: '<ion-spinner icon="ripple" class="spinner-positive"></ion-spinner>'
+                    template: '<ion-spinner icon="ripple" class="spinner-positive article-viewer"></ion-spinner>'
                 });
 
                 scope.article.then(function (article) {
