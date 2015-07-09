@@ -30,13 +30,12 @@ angular.module('ionPress')
                 };
 
                 this.updateSlideAvailability = function () {
-                    $scope.isSlideAvailable = isSlideAvailable();
+                    $scope.isNextSlideAvailable = isNextSlideAvailable();
                 };
 
-                function isSlideAvailable  () {
-                    console.log($ionicSlideBoxDelegate.$getByHandle('article-viewer').slidesCount());
-                    return(($ionicSlideBoxDelegate.currentIndex()+1) < $ionicSlideBoxDelegate.slidesCount());
-                };
+                function isNextSlideAvailable () {
+                    return (($ionicSlideBoxDelegate.currentIndex() + 1) < $scope.articles.length);
+                }
             },
             link: function postLink(scope, elem, attrs, controllers) {
                 scope.updateSlideAvailability = controllers[0].updateSlideAvailability;
