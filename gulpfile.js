@@ -21,7 +21,7 @@ var paths = {
 };
 
 gulp.task('default', ['sass', 'templates', 'bower', 'config']);
-gulp.task('validate', ['eslint', 'test']);
+gulp.task('validate', ['eslint']);
 
 gulp.task('config', function () {
   gulp.src('env/wp-api.json')
