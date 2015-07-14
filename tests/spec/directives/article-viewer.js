@@ -3,7 +3,13 @@
 describe('Directive: articleViewer', function () {
 
 	// load the service's module
-	beforeEach(module('ionPress'));
+	beforeEach(module('ionPress', function ($provide) {
+        $provide.decorator('$ionicHistory', function ($delegate) {
+            $delegate.goBack = jasmine.createSpy();
+
+            return $delegate;
+        });
+    }));
 
     var articleService, $httpBackend, wpApi;
     beforeEach(inject(function (_$httpBackend_, _articleService_, _wpApi_) {
@@ -33,7 +39,7 @@ describe('Directive: articleViewer', function () {
     beforeEach(inject(function ($rootScope, $compile, $q, moment) {
         scope    = $rootScope.$new();
         element  = $compile('<article-viewer article="article" articles="articles"></article-viewer>')(scope);
-        deferred = $q.defer()
+        deferred = $q.defer();
 
         scope.article = deferred.promise;
         deferred.resolve({
@@ -77,6 +83,12 @@ describe('Directive: articleViewer', function () {
         expect(isolated.article.ID).toBeDefined();
     });
 
+    it('should have articles', function () {
+        var isolated = element.isolateScope();
+        expect(isolated.articles).toBeDefined();
+        expect(isolated.articles.length > 0).toBe(true);
+    });
+
     it('should call next slide', function () {
         var isolated     = element.isolateScope();
         var ionFooterBar = angular.element(element.find('ion-footer-bar'));
@@ -92,5 +104,45 @@ describe('Directive: articleViewer', function () {
         });
 
         expect(isolated.nextSlide).toHaveBeenCalled();
+    });
+
+    it('should call slide availability', function () {
+        var isolated     = element.isolateScope();
+        var ionFooterBar = angular.element(element.find('ion-footer-bar'));
+        var buttons      = ionFooterBar.find('button');
+
+        spyOn(isolated, 'updateSlideAvailability').and.callFake(function() {
+            return true;
+        });
+
+        spyOn(isolated, 'nextSlide').and.callFake(function() {
+            isolated.updateSlideAvailability();
+        });
+
+        angular.forEach(buttons, function (button) {
+            var bttnEl = angular.element(button);
+            if(bttnEl.hasClass('next')) {
+                bttnEl.triggerHandler('click');
+            }
+        });
+
+        expect(isolated.updateSlideAvailability).toHaveBeenCalled();
+    });
+
+    it('should call goBack', function () {
+        var isolated     = element.isolateScope();
+        var ionFooterBar = angular.element(element.find('ion-footer-bar'));
+        var buttons      = ionFooterBar.find('button');
+
+        spyOn(isolated, 'goBack');
+
+        angular.forEach(buttons, function (button) {
+            var bttnEl = angular.element(button);
+            if(bttnEl.hasClass('back')) {
+                bttnEl.triggerHandler('click');
+            }
+        });
+
+        expect(isolated.goBack).toHaveBeenCalled();
     });
 });

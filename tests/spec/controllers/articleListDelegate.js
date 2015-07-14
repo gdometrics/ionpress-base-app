@@ -1,6 +1,6 @@
 'use strict';
 
-describe('Controller: articleController', function () {
+describe('Controller: articleListDelegate', function () {
 
 	// load the service's module
 	beforeEach(module('ionPress'));
