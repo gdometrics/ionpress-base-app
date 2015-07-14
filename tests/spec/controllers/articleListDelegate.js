@@ -6,7 +6,7 @@ describe('Controller: articleListDelegate', function () {
 	beforeEach(module('ionPress'));
 
 	var articleListDelegateController, scope;
-    beforeEach(inject(function ($controller, $rootScope, $stateParams, _articleService_) {
+    beforeEach(inject(function ($controller, $rootScope) {
         scope = $rootScope.$new();
         scope.articles = [];
 

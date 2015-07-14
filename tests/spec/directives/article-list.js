@@ -23,9 +23,4 @@ describe('Directive: articleList', function () {
     it('should have a controller', function () {
         expect(element.controller).toBeDefined();
     });
-
-    // @TODO complete test
-    //it('should have 3 article stubs in the list', function () {
-    //
-    //});
 });
