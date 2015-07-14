@@ -4,7 +4,7 @@ angular.module('ionPress')
             controller = this;
 
         /**
-         * Load Article 
+         * Load Article
          *
          * @param article
          * @returns {deferred.promise|{then}}
