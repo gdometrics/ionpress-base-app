@@ -8,8 +8,8 @@ angular.module('ionPress')
                 wordLimit: '@'
             },
             require: '^articleList',
-            link: function postLink(scope, element, attrs, articleListCntrl) {
-                scope.articles = articleListCntrl.getArticles();
+            link: function postLink(scope, element, attrs, articleListDelegate) {
+                scope.articles = articleListDelegate.getArticles();
             }
         };
     });

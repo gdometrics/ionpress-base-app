@@ -5,7 +5,7 @@ describe('Controller: articleController', function () {
 	// load the service's module
 	beforeEach(module('ionPress'));
 
-	var articleController, articleService, $httpBackend, wpApi, scope;
+	var articleController, $httpBackend, wpApi, scope;
 	beforeEach(inject(function (_$httpBackend_, _wpApi_) {
         $httpBackend = _$httpBackend_;
         wpApi = _wpApi_;
@@ -32,7 +32,7 @@ describe('Controller: articleController', function () {
         scope           = $rootScope.$new();
         $stateParams.id = 1;
         $stateParams.articles = [{
-            id: 1,
+            id: 1
         }];
 
         articleController = $controller('ArticleCtrl', {

@@ -1,12 +1,12 @@
 'use strict';
 
-describe('Controller: articleController', function () {
+describe('Controller: articleListDelegate', function () {
 
 	// load the service's module
 	beforeEach(module('ionPress'));
 
 	var articleListDelegateController, scope;
-    beforeEach(inject(function ($controller, $rootScope, $stateParams, _articleService_) {
+    beforeEach(inject(function ($controller, $rootScope) {
         scope = $rootScope.$new();
         scope.articles = [];
 

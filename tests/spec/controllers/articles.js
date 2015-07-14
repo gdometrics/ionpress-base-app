@@ -32,7 +32,7 @@ describe('Controller: articlesController', function () {
         scope           = $rootScope.$new();
         $stateParams.id = 1;
         $stateParams.articles = [{
-            id: 1,
+            id: 1
         }];
 
         articlesController = $controller('ArticlesCtrl', {
